@@ -72,4 +72,22 @@ mod tests {
         // Valid per UTS 46
         assert_is_err("aä.example");
     }
+
+    #[test]
+    fn bidi() {
+        // Not valid per UTS 46
+        assert_is_lower_cased_self("1.xn--mgbh0fb.2");
+    }
+
+    #[test]
+    fn zwnj() {
+        // Not valid per UTS 46
+        assert_is_lower_cased_self("xn--ab-j1t.example");
+    }
+
+    #[test]
+    fn zwj() {
+        // Not valid per UTS 46
+        assert_is_lower_cased_self("xn--ab-m1t.example");
+    }
 }
